@@ -1,0 +1,9 @@
+{
+    "llm": {
+        "user_message": "{user_prompt}\n\n{user_input_label}：\n{text}"
+    },
+    "knowledge": {
+        "qa_item": "[{index}]\n{type}\n{question_label}：{question}\n{answer_label}：{answer}\n{source_label}：{source}\n{score_label}：{score}",
+        "chunk_item": "[{index}]\n{type}\n{content_label}：{content}\n{source_label}：{source}\n{score_label}：{score}"
+    }
+}

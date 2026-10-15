@@ -1,0 +1,132 @@
+{
+    "locale_file": "config/locales/zh-CN.json",
+    "prompt_layout_file": "config/prompt_layout.json",
+    "agent": {
+        "sdk_url": "wss://open.agibot.com/api/V1/open-portal/app/wss/agent-sdk",
+        "app_id_env": "AGIBOT_APP_ID",
+        "app_key_env": "AGIBOT_APP_KEY",
+        "app_secret_env": "AGIBOT_APP_SECRET",
+        "agent_code_env": "AGIBOT_AGENT_CODE"
+    },
+    "scope_router": {
+        "llm": {
+            "provider": "openai_compatible",
+            "base_url": "https://your-llm-endpoint.example.com/v1",
+            "api_key_env": "SCOPE_ROUTER_LLM_API_KEY",
+            "model": "your-model-name",
+            "temperature": 0.1,
+            "max_tokens": 256,
+            "timeout_seconds": 3.0,
+            "business_timeout_seconds": 5.0,
+            "extra_body": {
+                "thinking": {
+                    "type": "disabled"
+                }
+            }
+        }
+    },
+    "skill_handler": {
+        "llm": {
+            "provider": "openai_compatible",
+            "base_url": "https://your-llm-endpoint.example.com/v1",
+            "api_key_env": "SCOPE_ROUTER_LLM_API_KEY",
+            "model": "your-model-name",
+            "temperature": 0.1,
+            "max_tokens": 256,
+            "timeout_seconds": 3.0,
+            "business_timeout_seconds": 5.0,
+            "extra_body": {
+                "thinking": {
+                    "type": "disabled"
+                }
+            }
+        }
+    },
+    "conversation": {
+        "enabled": true,
+        "idle_timeout_seconds": 40,
+        "max_turns": 6,
+        "max_history_chars": 3000
+    },
+    "reply_routes": {
+        "general": {
+            "handler": "handlers.general_chat_handler:GeneralChatHandler",
+            "llm": {
+                "provider": "openai_compatible",
+                "base_url": "https://your-llm-endpoint.example.com/v1",
+                "api_key_env": "GENERAL_CHAT_LLM_API_KEY",
+                "model": "your-model-name",
+                "temperature": 0.1,
+                "max_tokens": 512,
+                "timeout_seconds": 5,
+                "business_timeout_seconds": 10,
+                "stream": true,
+                "extra_body": {
+                    "thinking": {
+                        "type": "disabled"
+                    }
+                }
+            },
+            "knowledge_base": {
+                "enabled": false,
+                "business_timeout_seconds": 5
+            }
+        },
+        "business": {
+            "handler": "handlers.business_handler:BusinessHandler",
+            "llm": {
+                "provider": "openai_compatible",
+                "base_url": "https://your-llm-endpoint.example.com/v1",
+                "api_key_env": "BUSINESS_LLM_API_KEY",
+                "model": "your-model-name",
+                "temperature": 0.1,
+                "max_tokens": 512,
+                "timeout_seconds": 5,
+                "business_timeout_seconds": 10,
+                "stream": true,
+                "extra_body": {
+                    "thinking": {
+                        "type": "disabled"
+                    }
+                }
+            },
+            "knowledge_base": {
+                "enabled": true,
+                "api_url": "https://open.agibot.com/api/V1/open-portal/app/retriever/search/agent_kb",
+                "top_k": 5,
+                "rerank": true,
+                "check_qa_first": true,
+                "score_threshold": 0.1,
+                "timeout_seconds": 5,
+                "business_timeout_seconds": 5
+            }
+        }
+    },
+    "skill_actions": [
+        {
+            "skill_id": "blow_kiss",
+            "skill_name": "action",
+            "skill_value": "blow_kiss"
+        },
+        {
+            "skill_id": "hand_heart",
+            "skill_name": "action",
+            "skill_value": "hand_heart"
+        },
+        {
+            "skill_id": "wave_hands",
+            "skill_name": "action",
+            "skill_value": "wave_hands"
+        },
+        {
+            "skill_id": "goodbye",
+            "skill_name": "action",
+            "skill_value": "goodbye"
+        },
+        {
+            "skill_id": "play_music",
+            "skill_name": "action",
+            "skill_value": "play_music"
+        }
+    ]
+}

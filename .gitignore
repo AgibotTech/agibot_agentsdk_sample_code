@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv
+.ruff_cache/
+
+# Environment files: keep only the template
+.env
+.env.*
+!.env.example
+
+# Editor / OS / tooling
+.vscode
+.codex
+.agents
+.claude/
+.DS_Store
+
+# Root-level Markdown: only the READMEs are published
+/*.md
+!/README.md
+!/README_EN.md
